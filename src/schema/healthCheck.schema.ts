@@ -1,16 +1,14 @@
-const healthCheck = {
-  schema: {
-    response: {
-      200: {
-        type: 'object',
-        properties: {
-          success: { type: 'boolean' },
-          message: { type: 'string' },
-          error: { type: 'object' },
-        },
+const healthCheckSchema = {
+  response: {
+    200: {
+      type: 'object',
+      properties: {
+        success: { type: 'boolean' },
+        message: { type: 'string' },
+        timestamp: { type: 'string' },
       },
     },
   },
 };
 
-export default healthCheck;
+export default healthCheckSchema;
