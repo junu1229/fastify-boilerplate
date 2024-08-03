@@ -13,10 +13,6 @@ const config = {
     allowedHeaders: ['Content-Type'],
     credentials: true,
   },
-  mysql: {
-    connectionString: process.env.DB_CONNECTION_URL as string,
-    promise: true,
-  },
 };
 
 export default config;
