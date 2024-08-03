@@ -7,14 +7,12 @@ const main = async () => {
   const app = fastify({
     logger: true,
   });
-
   await plugins(app);
-
   router(app);
 
   try {
     // app.listen({ port: config.fastify.port, host: config.fastify.host });
-    app.listen({ port: config.fastify.port });
+    await app.listen({ port: config.fastify.port });
   } catch (err) {
     app.log.error(err);
     process.exit(1);
