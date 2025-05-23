@@ -1,6 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { WebSocket } from '@fastify/websocket';
-import { RawData } from 'ws';
+import { WebSocket, RawData } from 'ws';
 
 let connections: WebSocket[] = [];
 
@@ -24,7 +23,7 @@ const websocket = async (fastify: FastifyInstance) => {
 
 const handleMessage = (connection: WebSocket, message: RawData) => {
   connections.forEach((client) => {
-    if (client !== connection && client.readyState === client.OPEN) {
+    if (client !== connection && client.readyState === WebSocket.OPEN) {
       client.send(message);
     }
   });
